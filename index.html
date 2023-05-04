@@ -80,6 +80,17 @@
     <script src="uv/uv.sw.js"></script>
     <script src="uv/index.js"></script>
     <script>
+    importScripts('/PATHTOSCRIPTS/uv.sw.js');
+
+const sw = new UVServiceWorker();
+
+self.addEventListener('fetch', event =>
+    event.respondWith(
+        sw.fetch(event)
+    )
+);
+    </script>
+      <script>
       const f = document.getElementById('form');
       const q = document.getElementById('query');
       const google = 'https:/startpage.com/sp/search+';
